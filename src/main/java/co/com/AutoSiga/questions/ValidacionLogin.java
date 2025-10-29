@@ -1,4 +1,4 @@
-package co.com.AutoFacebook.questions;
+package co.com.AutoSiga.questions;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
@@ -15,6 +15,9 @@ public class ValidacionLogin implements Question<Boolean>{
 
     public static ValidacionLogin validacionLogin(){
         return new ValidacionLogin();
+    }
+
+    public static Question<Boolean> esExitosa() {
     }
 
     @Override

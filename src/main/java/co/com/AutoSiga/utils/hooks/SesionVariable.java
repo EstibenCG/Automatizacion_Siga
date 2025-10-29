@@ -1,4 +1,4 @@
-package co.com.AutoFacebook.utils.hooks;
+package co.com.AutoSiga.utils.hooks;
 
 public enum SesionVariable {
     usuario
