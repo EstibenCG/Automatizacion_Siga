@@ -1,15 +1,15 @@
 #language: es
 #author: Estiben
 
-Característica: Autenticación en la página de SIGA
-  Como usuario administrador de SIGA
-  Quiero iniciar sesión en la página
-  Para poder acceder al contenido y funciones de administrador
+Característica: Crear asignatura en la página
+  Como usuario autenticado
+  Quiero crear una nueva asignatura
+  para usarla más adelante
 
-  @login
-  Escenario: Verificar la autenticación exitosa en la página de SIGA
-    Dado que el usuario se encuentra en la página de inicio de sesión
-    Cuando el usuario ingrese las credenciales válidas
-      | Usuario           | Clave    |
-      | estiben@gmail.com | Cont123* |
-    Entonces el sistema debe permitir el acceso y mostrar el panel de administrador
+  @login @crearasignaturas
+  Escenario: Crear una asignatura en el menú asignaturas
+    Dado que el usuario ya inició sesión
+    Cuando crea una nueva asignatura
+      | nombre              |
+      | Asignatura Prueba   |
+    Entonces la asignatura deberia verse reflejada en el panel
