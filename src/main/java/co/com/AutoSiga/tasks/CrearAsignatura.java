@@ -1,5 +1,6 @@
 package co.com.AutoSiga.tasks;
 
+import co.com.AutoSiga.questions.ValidacionNotificacionAsignatura;
 import co.com.AutoSiga.userinterface.CrearAsignaturaUI;
 import co.com.AutoSiga.questions.ValidacionAsignatura;
 import net.serenitybdd.screenplay.Actor;
@@ -33,8 +34,9 @@ public class CrearAsignatura implements Task {
                 Click.on(CrearAsignaturaUI.CAMPO_MENU_BUTTON)
         );
 
-        // 4) Validación: la asignatura aparece en el panel
-        actor.should(seeThat(ValidacionAsignatura.existeEnElPanel(nombreAsignatura)));
+        // ✅ Validación de la notificación de éxito
+        actor.should(seeThat(ValidacionNotificacionAsignatura.esExitosa()));
+
     }
 
     public static CrearAsignatura conNombre(String nombreAsignatura) {

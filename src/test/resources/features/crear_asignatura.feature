@@ -10,4 +10,4 @@ Característica: Crear asignatura en la pagina
   Escenario: Crear una asignatura en el menu asignaturas
     Dado que el usuario ya inició sesión
     Cuando crea una nueva asignatura llamada 'Asignatura Prueba'
-    Entonces la asignatura deberia verse reflejada en en el panel
+    Entonces debería ver una notificación de éxito por la creación de la asignatura

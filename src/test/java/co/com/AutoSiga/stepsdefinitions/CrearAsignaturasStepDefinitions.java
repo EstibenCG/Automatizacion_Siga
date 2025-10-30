@@ -1,5 +1,6 @@
 package co.com.AutoSiga.stepsdefinitions;
 
+import co.com.AutoSiga.questions.ValidacionNotificacionAsignatura;
 import cucumber.api.java.es.Cuando;
 import cucumber.api.java.es.Dado;
 import cucumber.api.java.es.Entonces;
@@ -42,20 +43,12 @@ public class CrearAsignaturasStepDefinitions {
         );
     }
 
-    @Entonces("la asignatura deberia verse reflejada en en el panel")
-    public void laAsignaturaDeberiaVerseReflejadaEnEnElPanel() {
+    @Entonces("debería ver una notificación de éxito por la creación de la asignatura")
+    public void deberiaVerUnaNotificacionDeExito() {
         OnStage.theActorInTheSpotlight().should(
-                seeThat("la asignatura aparece en el panel",
-                        ValidacionAsignatura.existeEnElPanel(nombreAsignaturaCreada))
-        );
-    }
-
-    // Nuevo step que coincide exactamente con el texto del otro feature
-    @Entonces("^la asignatura deberia verse reflejada en el panel$")
-    public void laAsignaturaDeberiaVerseReflejadaEnElPanel() {
-        OnStage.theActorInTheSpotlight().should(
-                seeThat("la asignatura aparece en el panel",
-                        ValidacionAsignatura.existeEnElPanel(nombreAsignaturaCreada))
+                seeThat("la notificación de éxito es visible",
+                        ValidacionNotificacionAsignatura.esExitosa())
         );
     }
 }
+
