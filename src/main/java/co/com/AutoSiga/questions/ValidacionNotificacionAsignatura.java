@@ -16,7 +16,7 @@ public class ValidacionNotificacionAsignatura implements Question<Boolean> {
     @Override
     public Boolean answeredBy(Actor actor) {
         try {
-            // 📍 Notificación que aparece temporalmente
+
             By notificacionLocator = By.xpath("//*[@id='root']/div/div[2]/div/div[1]");
 
             int attempts = 20; // 20 * 500ms = 10 segundos
@@ -27,12 +27,12 @@ public class ValidacionNotificacionAsignatura implements Question<Boolean> {
                             .asString()
                             .trim();
 
-                    // ✅ Si contiene el texto esperado, la validación pasa
+
                     if (texto.contains(MENSAJE_ESPERADO)) {
                         return true;
                     }
                 } catch (Exception ignored) {
-                    // La notificación puede no haberse mostrado aún o ya desapareció
+
                 }
 
                 Thread.sleep(500);

@@ -21,7 +21,6 @@ public class ValidacionAsignatura implements Question<Boolean> {
     @Override
     public Boolean answeredBy(Actor actor) {
         try {
-            // Buscamos dinámicamente la celda en la tabla que contenga exactamente el nombre
             String xpathExact = String.format("//*[@id=\"root\"]//table//tbody//td[normalize-space()=\"%s\"]", nombreAsignatura);
             String xpathContains = String.format("//*[@id=\"root\"]//table//tbody//td[contains(normalize-space(.),\"%s\")]", nombreAsignatura);
 
@@ -33,7 +32,7 @@ public class ValidacionAsignatura implements Question<Boolean> {
                         return true;
                     }
                 } catch (Exception e) {
-                    // ignore, intentamos contains después
+
                 }
 
                 try {
@@ -53,14 +52,12 @@ public class ValidacionAsignatura implements Question<Boolean> {
                 }
             }
 
-            // Fallback final: buscar en el panel completo
             String textoPanel = Text.of(CrearAsignaturaUI.PANEL_ASIGNATURAS)
                     .viewedBy(actor)
                     .asString();
             return textoPanel.contains(nombreAsignatura);
 
         } catch (Exception e) {
-            // Si falla la búsqueda, retornamos false
             return false;
         }
     }
