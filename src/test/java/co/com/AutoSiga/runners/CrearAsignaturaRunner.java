@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
         features = "src/test/resources/features/crear_asignatura.feature",
-        glue = {"co.com.AutoSiga.stepsdefinitions", "co.com.Siga.utils.hooks"},
+        glue = {"co.com.AutoSiga.stepsdefinitions", "co.com.AutoSiga.utils.hooks"},
         snippets = SnippetType.CAMELCASE
 )
 public class CrearAsignaturaRunner {

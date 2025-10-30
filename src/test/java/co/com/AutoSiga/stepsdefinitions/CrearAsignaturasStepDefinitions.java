@@ -9,6 +9,11 @@ import co.com.AutoSiga.tasks.CrearAsignatura;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 
+// Nuevos imports para DataTable
+import cucumber.api.DataTable;
+import java.util.List;
+import java.util.Map;
+
 public class CrearAsignaturasStepDefinitions {
 
     private String nombreAsignaturaCreada;
@@ -18,7 +23,7 @@ public class CrearAsignaturasStepDefinitions {
         // Aquí puedes abrir la página o autenticar si quieres
     }
 
-    @Cuando("crea una nueva asignatura llamada \"([^\"]*)\"$")
+    @Cuando("^crea una nueva asignatura llamada '(.+)'$")
     public void creaUnaNuevaAsignaturaLlamada(String nombreAsignatura) {
         this.nombreAsignaturaCreada = nombreAsignatura;
         OnStage.theActorInTheSpotlight().attemptsTo(
@@ -26,8 +31,28 @@ public class CrearAsignaturasStepDefinitions {
         );
     }
 
+    // Nuevo step para la variante que utiliza una tabla de datos en el feature
+    @Cuando("^crea una nueva asignatura$")
+    public void creaUnaNuevaAsignatura(DataTable dataTable) {
+        List<Map<String, String>> rows = dataTable.asMaps(String.class, String.class);
+        String nombre = rows.get(0).get("nombre");
+        this.nombreAsignaturaCreada = nombre;
+        OnStage.theActorInTheSpotlight().attemptsTo(
+                CrearAsignatura.conNombre(nombre)
+        );
+    }
+
     @Entonces("la asignatura deberia verse reflejada en en el panel")
     public void laAsignaturaDeberiaVerseReflejadaEnEnElPanel() {
+        OnStage.theActorInTheSpotlight().should(
+                seeThat("la asignatura aparece en el panel",
+                        ValidacionAsignatura.existeEnElPanel(nombreAsignaturaCreada))
+        );
+    }
+
+    // Nuevo step que coincide exactamente con el texto del otro feature
+    @Entonces("^la asignatura deberia verse reflejada en el panel$")
+    public void laAsignaturaDeberiaVerseReflejadaEnElPanel() {
         OnStage.theActorInTheSpotlight().should(
                 seeThat("la asignatura aparece en el panel",
                         ValidacionAsignatura.existeEnElPanel(nombreAsignaturaCreada))
