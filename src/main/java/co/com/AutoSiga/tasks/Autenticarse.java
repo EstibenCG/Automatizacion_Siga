@@ -1,19 +1,19 @@
-package co.com.AutoFacebook.tasks;
+package co.com.AutoSiga.tasks;
 
-import co.com.AutoFacebook.models.CredencialesInicioSesion;
-import co.com.AutoFacebook.utils.hooks.SesionVariable;
+import co.com.AutoSiga.models.CredencialesInicioSesion;
+import co.com.AutoSiga.utils.hooks.SesionVariable;
 import net.serenitybdd.core.steps.Instrumented;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
-import net.serenitybdd.screenplay.actions.DriverTask;
 import net.serenitybdd.screenplay.actions.Enter;
 import org.apache.commons.lang3.RandomStringUtils;
+import net.serenitybdd.screenplay.actions.DriverTask;
 
 import java.util.List;
 
-import static co.com.AutoFacebook.userinterface.autenticacion.*;
+import static co.com.AutoSiga.userinterface.autenticacion.*;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
 public class Autenticarse implements Task{
