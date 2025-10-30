@@ -2,32 +2,32 @@ package co.com.AutoSiga.questions;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
-import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import org.slf4j.Logger;
+import net.serenitybdd.screenplay.questions.Text;
 
 import org.slf4j.LoggerFactory;
+import static co.com.AutoSiga.userinterface.autenticacion.MENSAJE_LOGIN;
 
 
 public class ValidacionLogin implements Question<Boolean>{
     private static final Logger logger = LoggerFactory.getLogger(ValidacionLogin.class);
 
-    private static final String MENSAJE_ESPERADO = "/u/Jaideen";
+    private static final String MENSAJE_ESPERADO = "Gestión de Usuarios";
 
     public static ValidacionLogin validacionLogin(){
         return new ValidacionLogin();
     }
 
-    public static Question<Boolean> esExitosa() {
-    }
+
 
     @Override
     public Boolean answeredBy (Actor actor){
         try{
-            String currentUrl = BrowseTheWeb.as(actor).getDriver().getCurrentUrl();
-            logger.info("URL actual: " + currentUrl);
-            return currentUrl != null && currentUrl.toLowerCase().contains(MENSAJE_ESPERADO.toLowerCase());
+            String texto = Text.of(MENSAJE_LOGIN).viewedBy(actor).asString().trim();
+            logger.info("Texto encontrado en mensaje login" +texto);
+            return MENSAJE_ESPERADO.equalsIgnoreCase(texto);
         }catch(Exception e){
-            logger.error("No se pudo obtener la URL actual: " + e.getMessage());
+            logger.error("No se encontro el mensaje esperado " + e.getMessage());
             return false;
         }
     }

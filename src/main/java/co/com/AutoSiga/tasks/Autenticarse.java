@@ -9,6 +9,7 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import org.apache.commons.lang3.RandomStringUtils;
+import net.serenitybdd.screenplay.actions.DriverTask;
 
 import java.util.List;
 
@@ -27,9 +28,6 @@ public class Autenticarse implements Task{
     }
 
     String numero = RandomStringUtils.random(2,false,true);
-
-    public static Performable con(List<CredencialesInicioSesion> credenciales) {
-    }
 
     @Override
     public <T extends Actor> void performAs(T actor) {

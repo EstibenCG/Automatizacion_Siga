@@ -22,11 +22,11 @@ public class AutenticacionStepDefinitions {
 
     @Cuando("^el usuario ingrese las credenciales válidas$")
     public void elUsuarioIngreseLasCredencialesValidas(List<CredencialesInicioSesion> credenciales) {
-        theActorInTheSpotlight().attemptsTo(Autenticarse.con(credenciales));
+        theActorInTheSpotlight().attemptsTo(Autenticarse.aute(credenciales));
     }
 
     @Entonces("^el sistema debe permitir el acceso y mostrar el panel de administrador$")
     public void elSistemaDebePermitirElAccesoYMostrarElPanelDeAdministrador() {
-        theActorInTheSpotlight().should(seeThat(ValidacionLogin.esExitosa()));
+        theActorInTheSpotlight().should(seeThat(ValidacionLogin.validacionLogin()));
     }
 }

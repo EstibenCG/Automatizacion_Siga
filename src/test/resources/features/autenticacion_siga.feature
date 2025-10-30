@@ -11,5 +11,5 @@ Característica: Autenticación en la página de SIGA
     Dado que el usuario se encuentra en la página de inicio de sesión
     Cuando el usuario ingrese las credenciales válidas
       | Usuario           | Clave    |
-      | estiben@gmail.com | 12345678 |
+      | estiben@gmail.com | Cont123* |
     Entonces el sistema debe permitir el acceso y mostrar el panel de administrador
