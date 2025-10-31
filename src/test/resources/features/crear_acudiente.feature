@@ -6,10 +6,15 @@ Característica: Crear acudiente
   Quiero registrar un acudiente
   Para que a este lleguen los reportes generados
 
-  @login @crearAcudiente
+  Antecedentes:
+    Dado que el usuario se encuentra en la página de inicio de sesión
+    Cuando el usuario ingrese las credenciales válidas
+      | Usuario         | Clave    |
+      | edwin@gmail.com | TEST123* |
+
+@crearAcudiente
   Escenario: Crear un acudiente
-    Dado que el usuario ya inició sesión
     Cuando crea un acudiente
-      | nombre | apellido | correo             |
-      | Juanes | Pérezoso | juanperez@mail.com |
+      | nombre    | apellido | correo              |
+      | Juanasasa | Pérezosi | juanpereza@mail.com |
     Entonces el acudiente debe quedar registrado
