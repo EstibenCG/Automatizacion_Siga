@@ -9,10 +9,10 @@ Característica: Crear asignatura en la pagina
   Antecedentes:
     Dado que el usuario se encuentra en la página de inicio de sesión
     Cuando el usuario ingrese las credenciales válidas
-      | Usuario           | Clave    |
-      | estiben@gmail.com | Cont123* |
+      | Usuario          | Clave    |
+      | andres@gmail.com | 12345678 |
 
-   @crearasignaturas
+  @crearasignaturas
   Escenario: Crear una asignatura en el menu asignaturas
     Cuando crea una nueva asignatura llamada 'Asignatura Prueba'
     Entonces debería ver una notificación de éxito por la creación de la asignatura
