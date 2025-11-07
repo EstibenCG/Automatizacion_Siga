@@ -27,9 +27,6 @@ public class crear_rol implements Task {
         actor.attemptsTo(
                 Click.on(BTN_PANEL_ROLES),
                 Enter.theValue(datos.getNombreDelRol()).into(NOMBRE_ROL),
-                Scroll.to(BTN_REGISTRAR_ROL),
-                WaitUntil.the(BTN_REGISTRAR_ROL, isVisible()).forNoMoreThan(5).seconds(),
-                WaitUntil.the(BTN_REGISTRAR_ROL, isClickable()).forNoMoreThan(5).seconds(),
                 Click.on(BTN_REGISTRAR_ROL)
         );
 

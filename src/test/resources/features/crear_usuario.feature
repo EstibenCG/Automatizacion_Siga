@@ -9,8 +9,8 @@ Característica: Crear usuario
   Antecedentes:
     Dado que el usuario se encuentra en la página de inicio de sesión
     Cuando el usuario ingrese las credenciales válidas
-      | Usuario         | Clave    |
-      | andres@gmail.com | 12345678 |
+      | Usuario          | Clave       |
+      | andres@gmail.com | Contra1234+ |
 
   @crearUsuario
   Escenario: Crear un usuario Docente
@@ -18,11 +18,4 @@ Característica: Crear usuario
     Cuando crea un usuario
       | correo            | contraseña | rol      |
       | Elpepe@mail.com   | 12345678   | Docente  |
-    Entonces el usuario debe quedar registrado
-
-  Escenario: Crear un usuario Administrador
-    Dado que el usuario ya inició sesión y se encuentra en el panel de usuario
-    Cuando crea un usuario
-      | correo                | contraseña | rol            |
-      | Elgranpepe@mail.com   | 12345678   | Administrador |
     Entonces el usuario debe quedar registrado

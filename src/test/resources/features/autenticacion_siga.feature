@@ -10,6 +10,6 @@ Característica: Autenticación en la página de SIGA
   Escenario: Verificar la autenticación exitosa en la página de SIGA
     Dado que el usuario se encuentra en la página de inicio de sesión
     Cuando el usuario ingrese las credenciales válidas
-      | Usuario           | Clave    |
-      | estiben@gmail.com | Cont123* |
+      | Usuario          | Clave       |
+      | andres@gmail.com | Contra1234+ |
     Entonces el sistema debe permitir el acceso y mostrar el panel de administrador

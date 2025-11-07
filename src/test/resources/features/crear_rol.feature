@@ -11,10 +11,10 @@ Característica: Crear rol
     Dado que el usuario se encuentra en la página de inicio de sesión
     Cuando el usuario ingrese las credenciales válidas
       | Usuario          | Clave    |
-      | andres@gmail.com | 12345678 |
+      | andres@gmail.com | Contra1234+ |
 
   @crearRol
-  Escenario: Crear un rol básico
+  Escenario: Crear un rol estudiante
     Cuando crea un rol
       | nombre del rol |
       | Estudiante     |
