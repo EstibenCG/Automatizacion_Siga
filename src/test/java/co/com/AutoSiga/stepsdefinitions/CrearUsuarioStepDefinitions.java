@@ -17,8 +17,8 @@ public class CrearUsuarioStepDefinitions {
 
     DatosUsuario usuario;
 
-    @Dado("^que el usuario ya inició sesión$")
-    public void queElUsuarioYaInicióSesión() {
+    @Dado("^que el usuario ya inició sesión y se encuentra en el panel de usuario$")
+    public void queElUsuarioInicióSesión() {
     }
 
     @Cuando("^crea un usuario$")
