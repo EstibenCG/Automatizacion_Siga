@@ -7,15 +7,15 @@ import net.serenitybdd.screenplay.waits.WaitUntil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static co.com.AutoSiga.userinterface.crearaula.VERIFICACION;
+import static co.com.AutoSiga.userinterface.crearrol.VERIFICACION;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
-public class ValidacionCrearAula implements Question<Boolean> {
-    private static final Logger logger = LoggerFactory.getLogger(ValidacionCrearAula.class);
-    private static final String MENSAJE_ESPERADO = "Aula registrada con éxito";
+public class ValidacionCrearRol implements Question<Boolean> {
+    private static final Logger logger = LoggerFactory.getLogger(ValidacionCrearRol.class);
+    private static final String MENSAJE_ESPERADO = "Rol registrado con éxito";
 
-    public static ValidacionCrearAula validacionCrearAula() {
-        return new ValidacionCrearAula();
+    public static ValidacionCrearRol validacionCrearRol() {
+        return new ValidacionCrearRol();
     }
 
     @Override
