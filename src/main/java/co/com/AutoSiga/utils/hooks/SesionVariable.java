@@ -1,5 +1,8 @@
 package co.com.AutoSiga.utils.hooks;
 
 public enum SesionVariable {
-    usuario
+    usuario,
+    NOMBRE,
+    APELLIDO,
+    CORREO
 }
