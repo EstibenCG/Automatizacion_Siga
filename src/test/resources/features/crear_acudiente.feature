@@ -9,10 +9,10 @@ Característica: Crear acudiente
   Antecedentes:
     Dado que el usuario se encuentra en la página de inicio de sesión
     Cuando el usuario ingrese las credenciales válidas
-      | Usuario          | Clave    |
-      | andres@gmail.com | Contra1234+ |
+      | Usuario         | Clave    |
+      | edwin@gmail.com | TEST123* |
 
-  @crearAcudiente
+@crearAcudiente
   Escenario: Crear un acudiente
     Cuando crea un acudiente
       | nombre    | apellido | correo              |
