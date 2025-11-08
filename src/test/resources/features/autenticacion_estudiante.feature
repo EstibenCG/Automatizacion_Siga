@@ -6,15 +6,16 @@ Característica: Crear Estudiante
   Estudiante
 
   Antecedentes:
-    Dado usuario se encuentra en la página de inicio de sesión
+    Dado que el usuario se encuentra en la página de inicio de sesión
     Cuando el usuario ingrese las credenciales válidas
-      | Usuario         | Clave    |
-      | maria@gmail.com | TEST123* |
+      | Usuario         | Clave     |
+      | maria@gmail.com | 123456789 |
+    Entonces el sistema debe permitir el acceso y mostrar el panel de administrador
 
-  @crearAcudiente
-  Escenario: Crear un docente
-    Cuando crea un docente
-      | nombre | apellido | Curso | Acudiente    |
+  @crearEstudiante
+  Escenario: Crea un Estudiante
+    Cuando crea un Estudiante
+      | nombre | apellido | Curso | Docente            |
       | Juan   | Mendez   | 2222  | Ferney Lopez |
 
     Entonces que se puede crear un estudiante

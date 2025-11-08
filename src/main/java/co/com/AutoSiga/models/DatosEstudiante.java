@@ -1,50 +1,50 @@
 package co.com.AutoSiga.models;
 
 public class DatosEstudiante {
-    private String Acudiente;
+    private int acudiente;
 
-    private String Curso;
+    private int curso;
 
-    private String Nombre;
-    private String Apellido;
+    private String nombre;
+    private String apellido;
 
-    public String getAcudiente() {
-        return Acudiente;
+    public DatosEstudiante(int acudiente, int curso, String nombre, String apellido) {
+        this.acudiente = acudiente;
+        this.curso = curso;
+        this.nombre = nombre;
+        this.apellido = apellido;
     }
 
-    public String getCurso() {
-        return Curso;
+    public int getAcudiente() {
+        return acudiente;
+    }
+
+    public void setAcudiente(int acudiente) {
+        this.acudiente = acudiente;
+    }
+
+    public int getCurso() {
+        return curso;
+    }
+
+    public void setCurso(int curso) {
+        this.curso = curso;
     }
 
     public String getNombre() {
-        return Nombre;
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getApellido() {
-        return Apellido;
+        return apellido;
     }
 
-    public void setAcudiente(String Acudiente) {
-        this.Acudiente = Acudiente;
-    }
-
-    public void setCurso(String Curso) {
-        this.Curso = Curso;
-    }
-
-    public void setNombre(String Nombre) {
-        this.Nombre = Nombre;
-    }
-
-    public void setApellido(String Apellido) {
-        this.Apellido = Apellido;
-    }
-
-    public DatosEstudiante(String Acudiente, String Curso, String Nombre, String Apellido) {
-
-    }
-
-    public DatosEstudiante() {
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 }
 

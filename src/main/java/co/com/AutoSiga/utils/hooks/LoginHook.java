@@ -19,8 +19,8 @@ public class LoginHook {
     public void loginBeforeScenario() {
         setTheStage(new OnlineCast());
 
-        String user = Objects.requireNonNullElse(System.getenv("TMDB_USER"), "estiben@gmail.com");
-        String pass = Objects.requireNonNullElse(System.getenv("TMDB_PASS"), "Cont123*");
+        String user = Objects.requireNonNullElse(System.getenv("TMDB_USER"), "maria@gmail.com");
+        String pass = Objects.requireNonNullElse(System.getenv("TMDB_PASS"), "123456789*");
 
         CredencialesInicioSesion c = new CredencialesInicioSesion();
         c.setUsuario(user);

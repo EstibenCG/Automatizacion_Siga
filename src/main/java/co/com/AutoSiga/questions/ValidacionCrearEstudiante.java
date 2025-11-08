@@ -8,7 +8,7 @@ import net.serenitybdd.screenplay.waits.WaitUntil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static co.com.AutoSiga.userinterface.CrearEstudiante.VERIFICACION;
+import static co.com.AutoSiga.userinterface.CrearEstudiantePage.VERIFICACION;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 public class ValidacionCrearEstudiante implements Question<Boolean> {
 
