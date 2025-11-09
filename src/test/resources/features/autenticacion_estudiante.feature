@@ -1,21 +1,22 @@
-#language: es
-  #autor: Maria
+# language: es
+# autor: Maria
 
 Característica: Crear Estudiante
-  Como usuario quiero registar un
-  Estudiante
+  Como usuario quiero registrar un estudiante
+  para que aparezca en el sistema
 
   Antecedentes:
     Dado que el usuario se encuentra en la página de inicio de sesión
     Cuando el usuario ingrese las credenciales válidas
       | Usuario         | Clave     |
-      | maria@gmail.com | 123456789 |
+      | maria@gmail.com | Maria2023 |
     Entonces el sistema debe permitir el acceso y mostrar el panel de administrador
 
   @crearEstudiante
   Escenario: Crea un Estudiante
+    Cuando me encuentro en la pagina de rol
+    Entonces le doy click al menu estudiante
     Cuando crea un Estudiante
-      | nombre | apellido | Curso | Docente            |
-      | Juan   | Mendez   | 2222  | Ferney Lopez |
-
+      | nombre | apellido | curso | acudiente |
+      | Juan   | Mendez   | 3     | 3         |
     Entonces que se puede crear un estudiante

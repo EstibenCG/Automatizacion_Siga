@@ -5,17 +5,21 @@ import net.serenitybdd.core.annotations.findby.By;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.screenplay.targets.Target;
 public class CrearEstudiantePage extends PageObject {
-    public static Target ACUDIENTE = Target.the("ACUDIENTE").
-            located(By.xpath("//*[@id=\"root\"]/div/div[2]/div/div[1]/select[1]"));
-    public static Target CURSO = Target.the("CURSO").
-            located(By.xpath("//*[@id=\"root\"]/div/div[2]/div/div[1]/input[2]"));
-    public static Target NOMBRE = Target.the("NOMBRE").
-            located(By.xpath("//*[@id=\"root\"]/div/div[2]/div/div[1]/input[1]"));
-    public static Target APELLIDO = Target.the("APELLIDO").
-            located(By.xpath("//*[@id=\"root\"]/div/div[2]/div/div[1]/input[1]"));
+    public static final Target NOMBRE = Target.the("campo nombre")
+            .located(By.name("nombre"));
 
-    public static Target BTN = Target.the("BOTON").
-            located(By.xpath("//*[@id=\"root\"]/div/div[2]/div/div[1]/input[2]"));
-    public static final Target VERIFICACION = Target.the("ALERTA DE VERIFICACION").
-            located(By.cssSelector(".mensaje-exito"));
+    public static final Target APELLIDO = Target.the("campo apellido")
+            .located(By.name("apellido"));
+
+    public static final Target CURSO = Target.the("selector curso")
+            .located(By.name("curso_id"));
+
+    public static final Target ACUDIENTE = Target.the("selector acudiente")
+            .located(By.name("acudiente_id"));
+
+    public static final Target BTN = Target.the("botón guardar")
+            .located(By.xpath("//*[@id=\"root\"]/div/div[2]/div/div[1]/button"));
+
+    public static Target MENU_ESTUDIANTE = Target.the("BOTON DEL MENU PARA IR A ESTUDIANTE").
+            located(By.xpath("//*[@id=\"root\"]/div/div[1]/button[9]"));
 }
