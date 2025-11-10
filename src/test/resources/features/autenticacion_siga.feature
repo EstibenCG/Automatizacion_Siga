@@ -1,5 +1,5 @@
 #language: es
-#author: Estiben
+#author: Maria
 
 Característica: Autenticación en la página de SIGA
   Como usuario administrador de SIGA
