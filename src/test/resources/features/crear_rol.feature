@@ -10,8 +10,8 @@ Característica: Crear rol
   Antecedentes:
     Dado que el usuario se encuentra en la página de inicio de sesión
     Cuando el usuario ingrese las credenciales válidas
-      | Usuario          | Clave    |
-      | andres@gmail.com | Contra1234+ |
+      | Usuario           | Clave    |
+      | estiben@gmail.com | Cont123* |
 
   @crearRol
   Escenario: Crear un rol estudiante
