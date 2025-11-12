@@ -16,6 +16,6 @@ Característica: Crear usuario
   Escenario: Crear un usuario Docente
     Dado que el usuario ya inició sesión y se encuentra en el panel de usuario
     Cuando crea un usuario
-      | correo            | contraseña | rol      |
-      | Elpepe@mail.com   | 12345678   | Docente  |
+      | correo            | contraseña | rol     |
+      | Elpepiño@mail.com | 12345678   | Docente |
     Entonces el usuario debe quedar registrado

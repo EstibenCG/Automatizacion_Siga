@@ -1,7 +1,6 @@
 package co.com.AutoSiga.stepsdefinitions;
 
 import co.com.AutoSiga.models.DatosUsuario;
-import co.com.AutoSiga.questions.ValidacionCrearAula;
 import co.com.AutoSiga.questions.ValidacionCrearUsuario;
 import co.com.AutoSiga.tasks.crear_usuario;
 import cucumber.api.java.es.Cuando;

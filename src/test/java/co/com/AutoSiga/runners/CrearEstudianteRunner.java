@@ -9,6 +9,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features/autenticacion_estudiante.feature",
         glue = {"co.com.AutoSiga.stepsdefinitions", "co.com.AutoSiga.utils.hooks"},
+        plugin = {"pretty", "html:target/cucumber-reports"},
         snippets = SnippetType. CAMELCASE)
 
 public class CrearEstudianteRunner {
