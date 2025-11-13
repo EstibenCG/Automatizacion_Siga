@@ -1,5 +1,5 @@
 #language: es
-#author: Edwin1538
+#author: OctavioGallo
 
 Característica: Crear usuario
   Como usuario autenticado
@@ -18,4 +18,4 @@ Característica: Crear usuario
     Cuando crea un usuario
       | correo            | contraseña | rol     |
       | Elpepiño@mail.com | 12345678   | Docente |
-    Entonces el usuario debe quedar registrado
+    Entonces el usuario debe quedar registrado 
