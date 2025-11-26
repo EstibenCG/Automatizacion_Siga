@@ -8,8 +8,8 @@ Característica: Crear Estudiante
   Antecedentes:
     Dado que el usuario se encuentra en la página de inicio de sesión
     Cuando el usuario ingrese las credenciales válidas
-      | Usuario         | Clave     |
-      | maria@gmail.com | Maria2023 |
+      | Usuario           | Clave    |
+      | estiben@gmail.com | Cont123* |
     Entonces el sistema debe permitir el acceso y mostrar el panel de administrador
 
   @crearEstudiante
