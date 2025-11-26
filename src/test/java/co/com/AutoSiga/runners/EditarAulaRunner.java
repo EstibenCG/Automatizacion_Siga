@@ -6,9 +6,9 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        features = "src/test/resources/features/editar_asignatura.feature",
+        features = "src/test/resources/features/editar_aula.feature",
         glue = {"co.com.AutoSiga.stepsdefinitions", "co.com.AutoSiga.utils.hooks"},
         plugin = {"pretty", "html:target/cucumber-reports"},
         snippets = SnippetType. CAMELCASE)
-public class EditarAsignatura {
+public class EditarAulaRunner {
 }

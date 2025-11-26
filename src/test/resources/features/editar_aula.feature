@@ -2,9 +2,9 @@
 #author: Edwin1538
 
 
-Característica: Editar Asignatura
+Característica: Editar Aula
   Como usuario autenticado
-  Quiero editar una asignatura registrada
+  Quiero editar un aula registrada
   Para mantener la informacion actualizada
 
 
@@ -15,8 +15,8 @@ Característica: Editar Asignatura
       | estiben@gmail.com | Cont123* |
 
   @crearAula
-  Escenario: Editar una asignatura
-    Cuando Edita una asignatura
-      | Asignatura |
-      | Materia    |
-    Entonces la asignatura debe quedar editada correctamente
+  Escenario: Editar una aula
+    Cuando Edita un aula
+      | nombre |
+      | Salon  |
+    Entonces el aula debe quedar editada correctamente

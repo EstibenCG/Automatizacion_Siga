@@ -17,7 +17,7 @@ public class EditarAsignaturaStepDefinitions {
 
     DatosAsignatura asignatura;
 
-    @Dado("^que el usuario ya inició sesión$")
+    @Dado("^que el usuario ya se logeó$")
     public void queElUsuarioYaInicióSesión() {
     }
 
@@ -31,7 +31,7 @@ public class EditarAsignaturaStepDefinitions {
                 );
     }
 
-    @Entonces("^el aula debe quedar editada correctamente$")
+    @Entonces("^la asignatura debe quedar editada correctamente$")
     public void elAulaDebeQuedarEditadaCorrectamente() {
         OnStage.theActorInTheSpotlight().should(
                 seeThat(ValidacionEditarAsignatura.validacionEditarAsignatura(), is(true))
