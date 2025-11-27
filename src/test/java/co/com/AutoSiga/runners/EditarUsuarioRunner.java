@@ -6,10 +6,9 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        features = "src/test/resources/features/autenticacion_siga.feature",
+        features = "src/test/resources/features/editar_usuario.feature",
         glue = {"co.com.AutoSiga.stepsdefinitions", "co.com.AutoSiga.utils.hooks"},
         plugin = {"pretty", "html:target/cucumber-reports"},
-        snippets = SnippetType. CAMELCASE)
-
-public class AutenticacionRunner {
+        snippets = SnippetType.CAMELCASE)
+public class EditarUsuarioRunner {
 }

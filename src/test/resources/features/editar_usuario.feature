@@ -1,10 +1,10 @@
 #language: es
 #author: OctavioGallo
 
-Característica: Crear usuario
+Característica: editar usuario
   Como usuario autenticado
-  Quiero registrar un usuario (docente o administrador)
-  Para gestionar el acceso al sistema
+  Quiero editar un usuario (docente o administrador)
+  Para actualizar la información del mismo
 
   Antecedentes:
     Dado que el usuario se encuentra en la página de inicio de sesión
@@ -12,10 +12,10 @@ Característica: Crear usuario
       | Usuario           | Clave    |
       | estiben@gmail.com | Cont123* |
 
-  @crearUsuario
-  Escenario: Crear un usuario Docente
+  @editarUsuario
+  Escenario: editar un usuario Docente
     Dado que el usuario ya inició sesión y se encuentra en el panel de usuario
-    Cuando crea un usuario
-      | correo            | contraseña | rol     |
-      | Elpepiño@mail.com | 12345678   | Docente |
-    Entonces el usuario debe quedar registrado
+    Cuando edita un usuario
+      | correo               | contraseña | rol     |
+      | Elpepinillo@mail.com | 12345678   | Docente |
+    Entonces el usuario debe quedar actualizado
