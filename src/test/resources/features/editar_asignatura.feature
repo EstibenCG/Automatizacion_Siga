@@ -14,7 +14,7 @@ Característica: Editar Asignatura
       | Usuario           | Clave    |
       | estiben@gmail.com | Cont123* |
 
-  @crearAula
+  @editarAsignatura
   Escenario: Editar una asignatura
     Cuando Edita una asignatura
       | Asignatura |
