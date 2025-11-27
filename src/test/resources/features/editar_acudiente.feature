@@ -15,6 +15,6 @@ Característica: Editar Acudiente
   @editarAcudiente
   Escenario: Editar un acudiente
     Cuando edita un acudiente
-      | Nombre | Apellido | Correo            |
-      | Juan   | Perez    | juan@example.com  |
+      | Nombre  | Apellido | Correo               |
+      | Pedrito | Cuadrado | pedritoc@example.com |
     Entonces el acudiente debe quedar editado correctamente
