@@ -14,7 +14,7 @@ Característica: Editar Aula
       | Usuario           | Clave    |
       | estiben@gmail.com | Cont123* |
 
-  @crearAula
+  @editarAula
   Escenario: Editar una aula
     Cuando Edita un aula
       | nombre |
