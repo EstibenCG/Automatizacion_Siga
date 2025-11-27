@@ -31,7 +31,7 @@ public class EstudianteClickMenu implements Task {
 
 
             );
-            Thread.sleep(3000);
+            Thread.sleep(9000);
             System.out.println("se dio click en menu");
 
         }
