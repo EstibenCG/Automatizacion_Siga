@@ -1,9 +1,6 @@
 package co.com.AutoSiga.runners.SuiteEditar;
 
-import co.com.AutoSiga.runners.EditarAsignaturaRunner;
-import co.com.AutoSiga.runners.EditarAulaRunner;
-import co.com.AutoSiga.runners.EditarEstudianteRunner;
-import co.com.AutoSiga.runners.EditarUsuarioRunner;
+import co.com.AutoSiga.runners.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
@@ -12,7 +9,8 @@ import org.junit.runners.Suite;
         EditarUsuarioRunner.class,
         EditarAulaRunner.class,
         EditarAsignaturaRunner.class,
-        EditarEstudianteRunner.class
+        EditarEstudianteRunner.class,
+        EditarAcudienteRunner.class
 })
 public class SuiteEditar {
 

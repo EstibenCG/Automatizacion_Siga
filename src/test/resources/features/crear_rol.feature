@@ -16,6 +16,5 @@ Característica: Crear rol
   @crearRol
   Escenario: Crear un rol estudiante
     Cuando crea un rol
-      | nombre del rol |
-      | Estudiante     |
+      | Estudiante |
     Entonces el rol debe quedar registrado
