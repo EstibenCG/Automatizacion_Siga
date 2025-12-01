@@ -8,6 +8,7 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.Scroll;
 import net.serenitybdd.screenplay.waits.WaitUntil;
+import org.apache.commons.lang3.RandomStringUtils;
 
 import static co.com.AutoSiga.userinterface.crearrol.*;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
@@ -22,11 +23,12 @@ public class crear_rol implements Task {
         this.datos = datos;
     }
 
+    String numero = RandomStringUtils.random(2, false, true);
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 Click.on(BTN_PANEL_ROLES),
-                Enter.theValue(datos.getNombreDelRol()).into(NOMBRE_ROL),
+                Enter.theValue(datos.getNombreDelRol()+numero).into(NOMBRE_ROL),
                 Click.on(BTN_REGISTRAR_ROL)
         );
 

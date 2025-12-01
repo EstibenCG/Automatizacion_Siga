@@ -7,6 +7,7 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.SelectFromOptions;
+import org.apache.commons.lang3.RandomStringUtils;
 
 import static co.com.AutoSiga.userinterface.editarusuario.*;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
@@ -19,12 +20,13 @@ public class editar_usuario implements Task {
         this.datos = datos;
     }
 
+    String numero = RandomStringUtils.random(2, false, true);
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 Click.on(BTN_EDITAR_USUARIO),
-                Enter.theValue(datos.getCorreo()).into(CORREO),
-                Enter.theValue(datos.getContraseña()).into(CONTRASENA),
+                Enter.theValue(datos.getCorreo()+numero).into(CORREO),
+                Enter.theValue(datos.getContraseña()+numero).into(CONTRASENA),
                 SelectFromOptions.byVisibleText(datos.getRol()).from(DROPDOWN_ROL),
                 Click.on(BTN_ACTUALIZAR)
         );
