@@ -17,4 +17,9 @@ public class crearaula extends PageObject {
 
     public static final Target VERIFICACION = Target.the("Alerta de verificación")
             .located(By.cssSelector(".mensaje-exito"));
+
+    public static Target AULA_EN_LISTA(String nombre) {
+        return Target.the("AULA en la lista").located(By.xpath("//table//tr[td[contains(text(),'" + nombre + "')]]"));
+    }
+
 }

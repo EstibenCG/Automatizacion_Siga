@@ -8,6 +8,8 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import org.apache.commons.lang3.RandomStringUtils;
+import net.serenitybdd.screenplay.actions.Scroll;
+
 
 import static co.com.AutoSiga.userinterface.crearacudiente.*;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
@@ -30,6 +32,17 @@ public class crear_acudiente implements Task {
                 Click.on(BTN)
         );
         theActorInTheSpotlight().remember(SesionVariable.NOMBRE.toString(), datos.getNombre() +Numero);
+
+        actor.attemptsTo(
+                net.serenitybdd.screenplay.waits.WaitUntil.the(
+                        ACUDIENTE_EN_LISTA(datos.getNombre()+Numero),
+                        net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible()
+                ).forNoMoreThan(8).seconds()
+        );
+
+        actor.attemptsTo(
+                Scroll.to(ACUDIENTE_EN_LISTA(datos.getNombre()+Numero))
+        );
     }
 
     public static crear_acudiente conDatos(DatosAcudiente datos) {
