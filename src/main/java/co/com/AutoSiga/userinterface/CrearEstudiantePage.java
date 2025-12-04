@@ -22,4 +22,7 @@ public class CrearEstudiantePage extends PageObject {
 
     public static Target MENU_ESTUDIANTE = Target.the("BOTON DEL MENU PARA IR A ESTUDIANTE").
             located(By.xpath("//*[@id=\"root\"]/div/div[1]/button[9]"));
+
+    public static Target ESTUDIANTE_EN_LISTA(String nombre) {return Target.the("Estudiante en la lista").located(By.xpath("//table//tr[td[contains(text(),'" + nombre + "')]]"));
+    }
 }
