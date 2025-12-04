@@ -4,5 +4,5 @@ public enum SesionVariable {
     usuario,
     NOMBRE,
     APELLIDO,
-    CORREO
+    ROL, CORREO
 }
