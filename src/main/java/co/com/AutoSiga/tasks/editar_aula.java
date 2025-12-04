@@ -8,6 +8,7 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
+import net.serenitybdd.screenplay.actions.Scroll;
 import org.apache.commons.lang3.RandomStringUtils;
 
 import static co.com.AutoSiga.userinterface.editaraula.*;
@@ -30,6 +31,13 @@ public class editar_aula implements Task {
                 Click.on(BTNACTUALIZAR)
         );
         theActorInTheSpotlight().remember(SesionVariable.NOMBRE.toString(), datos.getNombre() +Numero);
+
+        actor.attemptsTo(
+                net.serenitybdd.screenplay.waits.WaitUntil.the(
+                        AULA_EDITADA(datos.getNombre()+Numero),
+                        net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible()
+                ).forNoMoreThan(8).seconds()
+        );
     }
 
     public static editar_aula conDatos(DatosAula datos) {

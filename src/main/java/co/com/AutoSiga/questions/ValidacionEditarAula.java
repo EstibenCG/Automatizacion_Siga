@@ -1,5 +1,6 @@
 package co.com.AutoSiga.questions;
 
+import co.com.AutoSiga.utils.hooks.SesionVariable;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 import net.serenitybdd.screenplay.questions.Text;
@@ -8,7 +9,7 @@ import net.serenitybdd.screenplay.waits.WaitUntil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static co.com.AutoSiga.userinterface.editaraula.VERIFICACION;
+import static co.com.AutoSiga.userinterface.editaraula.*;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 public class ValidacionEditarAula implements Question<Boolean> {
@@ -21,12 +22,14 @@ public class ValidacionEditarAula implements Question<Boolean> {
     @Override
     public Boolean answeredBy(Actor actor) {
         try {
-            actor.attemptsTo(WaitUntil.the(VERIFICACION, isVisible()).forNoMoreThan(5).seconds());
+            String nombreRegistrado = actor.recall(SesionVariable.NOMBRE.toString());
+            logger.info("Validando edición del aula: {}", nombreRegistrado);
 
-            String texto = Text.of(VERIFICACION).viewedBy(actor).asString().trim();
-            logger.info("Texto encontrado en la alerta de verificación: {}", texto);
-
-            return texto.toLowerCase().contains(MENSAJE_ESPERADO.toLowerCase());
+            actor.attemptsTo(
+                    WaitUntil.the(AULA_EDITADA(nombreRegistrado), isVisible())
+                            .forNoMoreThan(8).seconds()
+            );
+            return AULA_EDITADA(nombreRegistrado).resolveFor(actor).isVisible();
         } catch (Exception e) {
             logger.error("No se encontró el mensaje de verificación: {}", e.getMessage());
             return false;
