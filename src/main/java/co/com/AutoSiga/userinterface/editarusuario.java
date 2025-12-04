@@ -13,4 +13,7 @@ public class editarusuario extends PageObject {
 
     public static final Target VERIFICACION = Target.the("Alerta de verificación")
             .located(By.cssSelector(".mensaje-exito"));
+
+    public static Target USUARIO_EN_LISTA(String correo) {return Target.the("Usuario en la lista").located(By.xpath("//table//tr[td[contains(text(),'" + correo + "')]]"));
+    }
 }

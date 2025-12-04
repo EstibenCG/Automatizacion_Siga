@@ -1,15 +1,21 @@
 package co.com.AutoSiga.tasks;
 
 import co.com.AutoSiga.models.DatosUsuario;
+import co.com.AutoSiga.utils.hooks.SesionVariable;
 import net.serenitybdd.core.steps.Instrumented;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
+import net.serenitybdd.screenplay.actions.Scroll;
 import net.serenitybdd.screenplay.actions.SelectFromOptions;
+import net.serenitybdd.screenplay.waits.WaitUntil;
+import org.apache.commons.lang3.RandomStringUtils;
 
+import static co.com.AutoSiga.userinterface.crearusuario.USUARIO_EN_LISTA;
 import static co.com.AutoSiga.userinterface.crearusuario.*;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 public class crear_usuario implements Task {
 
@@ -19,15 +25,28 @@ public class crear_usuario implements Task {
         this.datos = datos;
     }
 
+    String numero = RandomStringUtils.random(2, false, true);
     @Override
     public <T extends Actor> void performAs(T actor) {
+
+        String correoFinal = datos.getCorreo() + numero;
+
         actor.attemptsTo(
-                Enter.theValue(datos.getCorreo()).into(CORREO),
+                Enter.theValue(datos.getCorreo()+numero).into(CORREO),
                 Enter.theValue(datos.getContraseña()).into(CONTRASENA),
                 SelectFromOptions.byVisibleText(datos.getRol()).from(DROPDOWN_ROL),
                 Click.on(BTN_REGISTRAR)
         );
-        theActorInTheSpotlight().remember("CORREO_USUARIO_CREADO", datos.getCorreo());
+        actor.remember(SesionVariable.CORREO.toString(), correoFinal);
+
+        actor.attemptsTo(
+                WaitUntil.the(USUARIO_EN_LISTA(correoFinal), isVisible())
+                        .forNoMoreThan(8).seconds()
+        );
+
+        actor.attemptsTo(
+                Scroll.to(USUARIO_EN_LISTA(correoFinal))
+        );
     }
 
     public static crear_usuario conDatos(DatosUsuario datos) {
