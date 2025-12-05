@@ -10,4 +10,6 @@ public class editarasignatura extends PageObject {
     public static Target NOMBRE = Target.the("NOMBRE").located(By.xpath("/html/body/div/div/div[2]/div/div/input"));
     public static Target BTNACTUALIZAR = Target.the("BOTON").located(By.xpath("/html/body/div/div/div[2]/div/div/button[1]"));
     public static final Target VERIFICACION = Target.the("ALERTA DE VERIFICACION").located(By.cssSelector(".mensaje-exito"));
+    public static Target ASIGNATURA_EDITADA(String nombre) {return Target.the("Asignatura en la lista").located(By.xpath("//table//tr[td[contains(text(),'" + nombre + "')]]"));
+    }
 }
