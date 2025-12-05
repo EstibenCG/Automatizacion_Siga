@@ -1,51 +1,46 @@
+
 package co.com.AutoSiga.tasks;
 
-import co.com.AutoSiga.models.DatosAcudiente;
+import co.com.AutoSiga.models.DatosAula;
 import co.com.AutoSiga.utils.hooks.SesionVariable;
 import net.serenitybdd.core.steps.Instrumented;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
-import org.apache.commons.lang3.RandomStringUtils;
 import net.serenitybdd.screenplay.actions.Scroll;
+import org.apache.commons.lang3.RandomStringUtils;
 
-
-import static co.com.AutoSiga.userinterface.crearacudiente.*;
+import static co.com.AutoSiga.userinterface.editaraula.*;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
-public class crear_acudiente implements Task {
+public class editar_aula implements Task {
 
-    private final DatosAcudiente datos;
+    private final DatosAula datos;
 
-    public crear_acudiente(DatosAcudiente datos) {
+    public editar_aula(DatosAula datos) {
         this.datos = datos;
     }
     String Numero = RandomStringUtils.random(2, false, true);
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                Click.on(BTN_MODULO_ACUDIENTES),
+                Click.on(BTN_MODULO_AULA),
+                Click.on(BTNEDITAR),
                 Enter.theValue(datos.getNombre()+Numero).into(NOMBRE),
-                Enter.theValue(datos.getApellido()+Numero).into(APELLIDO),
-                Enter.theValue(datos.getCorreo()+Numero).into(CORREO),
-                Click.on(BTN)
+                Click.on(BTNACTUALIZAR)
         );
         theActorInTheSpotlight().remember(SesionVariable.NOMBRE.toString(), datos.getNombre() +Numero);
 
         actor.attemptsTo(
                 net.serenitybdd.screenplay.waits.WaitUntil.the(
-                        ACUDIENTE_EN_LISTA(datos.getNombre()+Numero),
+                        AULA_EDITADA(datos.getNombre()+Numero),
                         net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible()
                 ).forNoMoreThan(8).seconds()
         );
-
-        actor.attemptsTo(
-                Scroll.to(ACUDIENTE_EN_LISTA(datos.getNombre()+Numero))
-        );
     }
 
-    public static crear_acudiente conDatos(DatosAcudiente datos) {
-        return Instrumented.instanceOf(crear_acudiente.class).withProperties(datos);
+    public static editar_aula conDatos(DatosAula datos) {
+        return Instrumented.instanceOf(editar_aula.class).withProperties(datos);
     }
 }

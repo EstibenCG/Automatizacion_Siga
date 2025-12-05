@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features/crear_acudiente.feature",
         glue = {"co.com.AutoSiga.stepsdefinitions", "co.com.AutoSiga.utils.hooks"},
+        plugin = {"pretty", "html:target/cucumber-reports"},
         snippets = SnippetType. CAMELCASE)
 
 public class CrearAcudienteRunner {

@@ -12,16 +12,16 @@ import net.serenitybdd.screenplay.actions.SelectFromOptions;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import org.apache.commons.lang3.RandomStringUtils;
 
-import static co.com.AutoSiga.userinterface.crearusuario.USUARIO_EN_LISTA;
-import static co.com.AutoSiga.userinterface.crearusuario.*;
+import static co.com.AutoSiga.userinterface.crearrol.ROL_EN_LISTA;
+import static co.com.AutoSiga.userinterface.editarusuario.*;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
-public class crear_usuario implements Task {
+public class editar_usuario implements Task {
 
     private final DatosUsuario datos;
 
-    public crear_usuario(DatosUsuario datos) {
+    public editar_usuario(DatosUsuario datos) {
         this.datos = datos;
     }
 
@@ -32,11 +32,13 @@ public class crear_usuario implements Task {
         String correoFinal = datos.getCorreo() + numero;
 
         actor.attemptsTo(
+                Click.on(BTN_EDITAR_USUARIO),
                 Enter.theValue(datos.getCorreo()+numero).into(CORREO),
                 Enter.theValue(datos.getContraseña()).into(CONTRASENA),
                 SelectFromOptions.byVisibleText(datos.getRol()).from(DROPDOWN_ROL),
-                Click.on(BTN_REGISTRAR)
+                Click.on(BTN_ACTUALIZAR)
         );
+
         actor.remember(SesionVariable.CORREO.toString(), correoFinal);
 
         actor.attemptsTo(
@@ -49,7 +51,7 @@ public class crear_usuario implements Task {
         );
     }
 
-    public static crear_usuario conDatos(DatosUsuario datos) {
-        return Instrumented.instanceOf(crear_usuario.class).withProperties(datos);
+    public static editar_usuario conDatos(DatosUsuario datos) {
+        return Instrumented.instanceOf(editar_usuario.class).withProperties(datos);
     }
 }
