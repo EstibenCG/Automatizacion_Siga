@@ -6,12 +6,14 @@ public class DatosEstudiante {
     private String apellido;
     private String curso;
     private String acudiente;
+    private String numero;
 
-    public DatosEstudiante(String nombre, String apellido, String curso, String acudiente) {
+    public DatosEstudiante(String nombre, String apellido, String curso, String acudiente, String numero) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.curso = curso;
         this.acudiente = acudiente;
+        this.numero = numero;
     }
 
     public String getNombre() {
@@ -30,6 +32,7 @@ public class DatosEstudiante {
         return acudiente;
     }
 
-
+    public String getNumero() {
+        return numero;
     }
-
+}
