@@ -1,6 +1,7 @@
 package co.com.AutoSiga.stepsdefinitions;
 
-import co.com.AutoSiga.questions.ValidacionNotificacionAsignatura;
+import co.com.AutoSiga.questions.ValidacionCrearAsignatura;
+
 import cucumber.api.java.es.Cuando;
 import cucumber.api.java.es.Dado;
 import cucumber.api.java.es.Entonces;
@@ -29,9 +30,10 @@ public class CrearAsignaturasStepDefinitions {
     @Entonces("debería ver una notificación de éxito por la creación de la asignatura")
     public void deberiaVerUnaNotificacionDeExito() {
         OnStage.theActorInTheSpotlight().should(
-                seeThat("la notificación de éxito es visible",
-                        ValidacionNotificacionAsignatura.esExitosa())
+                seeThat(
+                        "la notificación de éxito es visible",
+                        ValidacionCrearAsignatura.validacionCrearAsignatura()
+                )
         );
     }
 }
-
