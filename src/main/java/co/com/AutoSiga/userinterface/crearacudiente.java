@@ -13,4 +13,7 @@ public class crearacudiente extends PageObject {
 
     public static final Target VERIFICACION = Target.the("ALERTA DE VERIFICACION").located(By.cssSelector(".mensaje-exito"));
 
+    public static Target ACUDIENTE_EN_LISTA(String nombre) {return Target.the("Acudiente en la lista").located(By.xpath("//table//tr[td[contains(text(),'" + nombre + "')]]"));
+    }
+
 }
