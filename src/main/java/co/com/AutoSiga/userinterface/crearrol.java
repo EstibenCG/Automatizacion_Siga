@@ -12,4 +12,7 @@ public class crearrol extends PageObject {
 
     public static final Target VERIFICACION = Target.the("Alerta de verificación")
             .located(net.serenitybdd.core.annotations.findby.By.cssSelector(".mensaje-exito"));
+    public static Target ROL_EN_LISTA(String nombre) {
+        return Target.the("ROL en la lista").located(By.xpath("//table//tr[td[contains(text(),'" + nombre + "')]]"));
+    }
 }

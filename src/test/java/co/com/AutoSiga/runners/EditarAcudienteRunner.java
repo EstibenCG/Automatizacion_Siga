@@ -1,4 +1,5 @@
 package co.com.AutoSiga.runners;
+
 import cucumber.api.CucumberOptions;
 import cucumber.api.SnippetType;
 import net.serenitybdd.cucumber.CucumberWithSerenity;
@@ -6,10 +7,9 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        features = "src/test/resources/features/autenticacion_siga.feature",
+        features = "src/test/resources/features/editar_acudiente.feature",
         glue = {"co.com.AutoSiga.stepsdefinitions", "co.com.AutoSiga.utils.hooks"},
         plugin = {"pretty", "html:target/cucumber-reports"},
-        snippets = SnippetType. CAMELCASE)
-
-public class AutenticacionRunner {
+        snippets = SnippetType.CAMELCASE)
+public class EditarAcudienteRunner {
 }
