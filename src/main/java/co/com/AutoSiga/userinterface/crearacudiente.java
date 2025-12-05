@@ -12,6 +12,5 @@ public class crearacudiente extends PageObject {
     public static Target BTN = Target.the("BOTON").located(By.xpath("/html/body/div/div/div[2]/div/div[1]/button"));
 
     public static final Target VERIFICACION = Target.the("ALERTA DE VERIFICACION").located(By.cssSelector(".mensaje-exito"));
-    public static Target ACUDIENTE_EN_LISTA(String nombre) {return Target.the("Acudiente en la lista").located(By.xpath("//table//tr[td[contains(text(),'" + nombre + "')]]"));
-    }
+
 }
