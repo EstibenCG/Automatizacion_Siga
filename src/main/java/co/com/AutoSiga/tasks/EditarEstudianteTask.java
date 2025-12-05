@@ -7,10 +7,13 @@ import co.com.AutoSiga.userinterface.EditarEstudiantePage;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 
+import static co.com.AutoSiga.userinterface.CrearEstudiantePage.ESTUDIANTE_EN_LISTA;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.Click;
+import net.serenitybdd.screenplay.actions.Scroll;
 import net.serenitybdd.screenplay.actions.SelectFromOptions;
+import org.apache.commons.lang3.RandomStringUtils;
 
 public class EditarEstudianteTask implements Task {
 
@@ -19,6 +22,9 @@ public class EditarEstudianteTask implements Task {
     public EditarEstudianteTask(DatosEstudiante estudiante) {
         this.estudiante = estudiante;
     }
+
+    String Numero = RandomStringUtils.random(2, false, true);
+
 
     public static EditarEstudianteTask inicio(DatosEstudiante estudiante) {
         return instrumented(EditarEstudianteTask.class, estudiante);
@@ -29,19 +35,21 @@ public class EditarEstudianteTask implements Task {
         System.out.println("Ingresamos los datos del estudiante: " + estudiante);
 
         actor.attemptsTo(
-
                 Click.on(EditarEstudiantePage.BTN),
-                Enter.theValue(estudiante.getNombre()).into(EditarEstudiantePage.NOMBRE),
+                Enter.theValue(estudiante.getNombre()+ Numero).into(EditarEstudiantePage.NOMBRE),
                 Click.on(EditarEstudiantePage.ACTUALIZAR)
-
-
         );
-        try {
-            System.out.printf("se registro exitosamente el estudiante");
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+
+        actor.attemptsTo(
+                net.serenitybdd.screenplay.waits.WaitUntil.the(
+                        ESTUDIANTE_EN_LISTA(estudiante.getNombre()+Numero),
+                        net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible()
+                ).forNoMoreThan(8).seconds()
+        );
+
+        actor.attemptsTo(
+                Scroll.to(ESTUDIANTE_EN_LISTA(estudiante.getNombre()+Numero))
+        );
     }
 
 

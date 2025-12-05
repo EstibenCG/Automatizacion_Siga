@@ -24,5 +24,10 @@ public class EditarEstudiantePage {
             located(By.xpath("//*[@id=\"root\"]/div/div[1]/button[9]"));
     public static Target ACTUALIZAR = Target.the("BOTON ACTUALIZAR").
             located(By.xpath("//*[@id=\"root\"]/div/div[2]/div/div[1]/button"));
-}
+
+    public static Target ESTUDIANTE_EDITADO(String nombre) {
+        return Target.the("Estudiante en la lista").located(By.xpath("//table//tr[td[contains(text(),'" + nombre + "')]]"));
+    }
+
+    }
 
