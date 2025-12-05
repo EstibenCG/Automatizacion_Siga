@@ -30,8 +30,14 @@ public class editar_acudiente implements Task {
                 Enter.theValue(datos.getNombre() + Numero).into(NOMBRE),
                 Enter.theValue(datos.getApellido() + Numero).into(APELLIDO),
                 Enter.theValue(datos.getCorreo()).into(CORREO),
-                Click.on(BTNACTUALIZAR)
+                Click.on(BTNACTUALIZAR),
+                // WaitUntil como parte del mismo attemptsTo, no anidado
+                net.serenitybdd.screenplay.waits.WaitUntil.the(
+                        ACUDIENTE_EDITADO(datos.getNombre() + Numero),
+                        net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible()
+                ).forNoMoreThan(8).seconds()
         );
+
         theActorInTheSpotlight().remember(SesionVariable.NOMBRE.toString(), datos.getNombre() + Numero);
     }
 

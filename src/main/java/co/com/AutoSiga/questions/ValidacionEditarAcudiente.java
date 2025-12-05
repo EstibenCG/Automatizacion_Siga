@@ -4,6 +4,8 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 import net.serenitybdd.screenplay.questions.Text;
 import net.serenitybdd.screenplay.waits.WaitUntil;
+import co.com.AutoSiga.utils.hooks.SesionVariable;
+import static co.com.AutoSiga.userinterface.editaracudiente.*;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,12 +24,14 @@ public class ValidacionEditarAcudiente implements Question<Boolean> {
     @Override
     public Boolean answeredBy(Actor actor) {
         try {
-            actor.attemptsTo(WaitUntil.the(VERIFICACION, isVisible()).forNoMoreThan(5).seconds());
+            String nombreRegistrado = actor.recall(SesionVariable.NOMBRE.toString());
+            logger.info("Validando edición de la asignatura: {}", nombreRegistrado);
 
-            String texto = Text.of(VERIFICACION).viewedBy(actor).asString().trim();
-            logger.info("Texto encontrado en la alerta de verificación: {}", texto);
-
-            return texto.toLowerCase().contains(MENSAJE_ESPERADO.toLowerCase());
+            actor.attemptsTo(
+                    WaitUntil.the(ACUDIENTE_EDITADO(nombreRegistrado), isVisible())
+                            .forNoMoreThan(8).seconds()
+            );
+            return ACUDIENTE_EDITADO(nombreRegistrado).resolveFor(actor).isVisible();
         } catch (Exception e) {
             logger.error("No se encontró el mensaje de verificación: {}", e.getMessage());
             return false;

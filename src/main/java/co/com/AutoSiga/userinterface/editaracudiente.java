@@ -17,4 +17,6 @@ public class editaracudiente extends PageObject {
     public static Target CORREO = Target.the("CORREO").located(By.xpath("//*[@id=\"root\"]/div/div[2]/div/div[1]/input[3]"));
     public static Target BTNACTUALIZAR = Target.the("BOTON").located(By.xpath("//*[@id=\"root\"]/div/div[2]/div/div[1]/button"));
     public static final Target VERIFICACION = Target.the("ALERTA DE VERIFICACION").located(By.cssSelector(".mensaje-exito"));
+    public static Target ACUDIENTE_EDITADO(String nombre) {return Target.the("Asignatura en la lista").located(By.xpath("//table//tr[td[contains(text(),'" + nombre + "')]]"));
+    }
 }
